@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage with Banner and Content</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap');
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: #15111d;
+            font-family: 'Zen Kurenaido', sans-serif;
+        }
+
+        #banner-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-image: url('https://images.plurk.com/49OI6VEvhtg9DSAoxRezOc.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #top-text, #middle-text, #bottom-text {
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+
+        #top-text {
+            font-size: 64px;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        #middle-text {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 3px;
+            text-align: center;
+        }
+
+        #middle-text strong {
+            font-weight: bold;
+        }
+
+        #bottom-text {
+            font-size: 20px;
+            color: #e06666;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 1890s水平標線樣式 */
+        #horizontal-line {
+            width: 100%;
+            text-align: center;
+            margin-top: 24px;
+            position: relative;
+        }
+
+        #horizontal-line::before, #horizontal-line::after {
+            content: '';
+            width: calc(50% - 45px);
+            height: 1px;
+            background-color: #474747;
+            position: absolute;
+            top: 50%;
+        }
+
+        #horizontal-line::before {
+            left: 0;
+        }
+
+        #horizontal-line::after {
+            right: 0;
+        }
+
+        #horizontal-line span {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #15111d;
+            padding: 0 15px;
+        }
+
+        /* 雙欄樣式 */
+        .columns {
+            display: flex;
+            justify-content: center;
+            margin-top: 24px;
+        }
+
+        .column {
+            width: 660px;
+            text-align: center;
+            margin: 0 20px; /* 雙欄之間的間距 */
+        }
+
+        .column img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .column img:hover {
+            transform: scale(1.05);
+        }
+
+        .column p {
+            margin-top: 12px;
+            font-size: 24px;
+            color: #ffffff;
+        }
+
+        /* 八欄樣式 */
+        .eight-columns {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .eight-column {
+            width: 150px;
+            margin: 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .eight-column img {
+            width: 150px;
+            height: 300px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .eight-column img:hover {
+            transform: scale(1.05);
+        }
+
+        .top-aligned img {
+            margin-bottom: 12px;
+        }
+
+        .bottom-aligned img {
+            margin-top: 12px;
+        }
+
+        .eight-column p {
+            font-size: 12px;
+        }
+
+        /* 手機版排版 */
+        @media (max-width: 768px) {
+            #banner-container {
+                height: 150px;
+            }
+
+            #top-text {
+                font-size: 30px;
+            }
+
+            #middle-text, #bottom-text {
+                font-size: 10px;
+            }
+
+            .columns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .column {
+                width: 100%;
+                max-width: 660px;
+                margin-bottom: 20px;
+            }
+
+            .column img {
+                width: 90%;
+            }
+
+            .eight-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .eight-column {
+                margin: 10px 0;
+            }
+
+            .eight-column img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="banner-container">
+        <div id="top-text">哈利波特世界觀OC集中</div>
+        <div id="middle-text">
+            有<strong>神聖二十八姓的家族成員捏造</strong>，内含《<strong>霍格華茲的傳承</strong>》此遊戲的OC。
+        </div>
+        <div id="bottom-text">請務必用電腦版觀看此網站，手機版版面簡直像是山怪過境地一團糟</div>
+    </div>
+
+    <div id="horizontal-line">
+        <span>1890s</span>
+    </div>
+
+    <div class="columns">
+        <div class="column">
+            <img src="https://via.placeholder.com/660" alt="人際關係圖" onclick="enlargeImage(this)">
+            <p>人際關係圖</p>
+        </div>
+        <div class="column">
+            <img src="https://via.placeholder.com/660" alt="相對年齡圖" onclick="enlargeImage(this)">
+            <p>相對年齡圖</p>
+        </div>
+    </div>
+
+    <div class="eight-columns">
+        <!-- Left Column 1,3,5,7 with top-aligned images -->
+        <div class="eight-column top-aligned">
+            <img src="https://placehold.co/150x300" alt="Eden Macmilan" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/eden-macmilan?authuser=0'">
+            <p>Eden Macmilan</p>
+        </div>
+        <div class="eight-column bottom-aligned">
+            <p>Lionel Ethel</p>
+            <img src="https://placehold.co/150x300" alt="Lionel Ethel" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/lionel-ethel?authuser=0'">
+        </div>
+        <div class="eight-column top-aligned">
+            <img src="https://placehold.co/150x300" alt="Alfred Lopez" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/alfred-lopez?authuser=0'">
+            <p>Alfred Lopez</p>
+        </div>
+        <div class="eight-column bottom-aligned">
+            <p>Isidore Ethel</p>
+            <img src="https://placehold.co/150x300" alt="Isidore Ethel" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/isidore-ethel?authuser=0'">
+        </div>
+        <div class="eight-column top-aligned">
+            <img src="https://placehold.co/150x300" alt="Elvira Lopez" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/elvira-lopez?authuser=0'">
+            <p>Elvira Lopez</p>
+        </div>
+        <div class="eight-column bottom-aligned">
+            <p>Aaliyah Ethel</p>
+            <img src="https://placehold.co/150x300" alt="Aaliyah Ethel" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/aaliyah-ethel?authuser=0'">
+        </div>
+        <div class="eight-column top-aligned">
+            <img src="https://placehold.co/150x300" alt="Cecilia Smith" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/cecilia-smith?authuser=0'">
+            <p>Cecilia Smith</p>
+        </div>
+        <div class="eight-column bottom-aligned">
+            <p>Horton Ethel</p>
+            <img src="https://placehold.co/150x300" alt="Horton Ethel" onclick="location.href='https://sites.google.com/view/wizarding-world-of-yuu-and-mu/horton-ethel?authuser=0'">
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const topText = document.getElementById('top-text');
+            const middleText = document.getElementById('middle-text');
+            const bottomText = document.getElementById('bottom-text');
+
+            // 先淡入上排文字
+            setTimeout(() => {
+                topText.style.opacity = 1;
+            }, 500); // 500 毫秒後淡入
+
+            // 接著淡入中排和下排文字
+            setTimeout(() => {
+                middleText.style.opacity = 1;
+                bottomText.style.opacity = 1;
+            }, 2500); // 2500 毫秒後淡入
+        };
+
+        function enlargeImage(image) {
+            const src = image.src;
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = 0;
+            modal.style.left = 0;
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = 1000;
+            modal.innerHTML = `<img src="${src}" style="width: 80%; height: auto; border-radius: 10px;">`;
+
+            modal.onclick = function() {
+                document.body.removeChild(modal);
+            };
+
+            document.body.appendChild(modal);
+        }
+    </script>
+</body>
+</html>
